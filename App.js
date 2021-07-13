@@ -1,21 +1,50 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState} from 'react';
+import { Text } from 'react-native';
+
+import WelcomeScreen from './screens/WelcomeScreen';
+import ViewImageScreen from './screens/ViewImageScreen';
+import CardScreen from './screens/CardScreen';
+import MessageScreen from './screens/MessageScreen';
+import AccountScreen from './screens/AccountScreen';
+import ListingsScreen from './screens/ListingsScreen';
+import AppTextInput from './components/AppTextInput';
+import PickerScreen from './screens/PickerScreen';
+import LoginScreen from './screens/LoginScreen';
+
+
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+  //return <WelcomeScreen/>;
+  //return <ViewImageScreen/>;
+  //return <CardScreen/>;
+  //return <MessageScreen/>;
+  //return <AccountScreen/>;
+  //return <ListingsScreen/>;
+  //return <PickerScreen/>
+  return <LoginScreen/>
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  /*const [firstName, setFirstName] = useState(''); //empty so not undefined
+
+  return (
+    <Screen>
+      <Text>{firstName}</Text>
+      <TextInput 
+      clearButtonMode="always"  //iPhone only
+      //keyboardType="numberic"
+      //secureTextEntry         //If not indicated, true
+      onChangeText= {text => setFirstName(text)}
+      placeholder="First Name"
+      style={{
+        borderBottomColor: "#ccc",
+        borderBottomWidth: 1,
+      }}>
+
+      </TextInput>
+    </Screen>
+    */
+
+/*?*return (
+      <AppTextInput></AppTextInput>
+  );*/
+}
