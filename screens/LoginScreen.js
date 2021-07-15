@@ -1,45 +1,51 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {StyleSheet, Image, View} from 'react-native';
+import { Formik } from 'formik';
 
 import AppTextInput from '../components/AppTextInput';
 import Screen from '../components/Screen';
 import AppButton from '../components/AppButton';
-import colors from '../config/Colors';
 
 function LoginScreen(props) {
-const [email, setEmail] = useState();
-const [password, setPassword] = useState();
+//const [email, setEmail] = useState();//Formik tracks state
+//const [password, setPassword] = useState(); Formik, no longer need
 
     return (
-        <Screen>
+        <Screen style={styles.container}>
             <Image
                 source={require("../assets/logo-red.png")}
                 style={styles.logo}/>
-            <View style={styles.input}>
-                <AppTextInput
-                    icon="email"
-                    placeholder="Email"
-                    autoCapitalization="none"
-                    autoCorrect={false}
-                    keyBoardType="email-address"
-                    textContentType="emailAddress"  //IOS, autofill from keychain
-                    onChangeText={text => setEmail(text)}
-                />
-                <AppTextInput
-                    icon="lock"
-                    placeholder="Password"
-                    autoCapitalization="none"
-                    autoCorrect={false}
-                    secureTextEntry     //Default true 
-                    onChangeText={text => setPassword(text)}
-                />
-                <AppButton
-                    style={styles.login}
-                    title="Login"
-                    color={colors.black}
-                    onPress={() => console.log(email, password)}
-                />
-            </View>
+            <Formik
+                initialValues={{ email: '', password: '' }}
+                onSubmit={values => console.log(values)}
+            >
+                { ( {handleChange, handleSubmit} ) => (//bracket allows multuple lines
+                    <>
+                        <AppTextInput
+                            icon="email"
+                            placeholder="Email"
+                            autoCapitalization="none"
+                            autoCorrect={false}
+                            keyBoardType="email-address"
+                            textContentType="emailAddress"  //IOS, autofill from keychain
+                            onChangeText={handleChange("email")}
+                        />
+                        <AppTextInput
+                            icon="lock"
+                            placeholder="Password"
+                            autoCapitalization="none"
+                            autoCorrect={false}
+                            secureTextEntry     //Default true 
+                            onChangeText={handleChange("password")}
+                        />
+                        <AppButton
+                            title="Login"
+                            color="primary"
+                            onPress={handleSubmit}
+                        />
+                    </>
+                )}
+            </Formik>
         </Screen>
     );
 }
@@ -52,12 +58,9 @@ const styles = StyleSheet.create({
         marginTop: 50,
         marginBottom: 20
     },
-    input: {
-        
+    container: {
+        padding: 10,
     },
-    login: {
-
-    }
-})
+});
 
 export default LoginScreen;
