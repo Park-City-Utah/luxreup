@@ -5,7 +5,7 @@ import colors from '../config/Colors';
 
 function AppText({children, style}) {  //was props, destructured
     return (
-        <Text style={[styles.text, style]}>{children}</Text>//would bd props.childre  w/o destructure
+        <Text style={[styles.text, style]}>{children}</Text>//would be props.children  w/o destructure
     );
 }
 

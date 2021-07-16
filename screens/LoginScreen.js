@@ -1,10 +1,18 @@
 import React from 'react';
 import {StyleSheet, Image, View} from 'react-native';
 import { Formik } from 'formik';
+import * as Yup from 'yup';
 
 import AppTextInput from '../components/AppTextInput';
+import AppText from '../components/AppText';
 import Screen from '../components/Screen';
 import AppButton from '../components/AppButton';
+import ErrorMessage from '../components/ErrorMessage';
+
+const validationSchema = Yup.object().shape({
+    email: Yup.string().required().email().label("Email"),
+    password: Yup.string().required().min(4).label("Password")
+}); //outside so doesnt get defined each time
 
 function LoginScreen(props) {
 //const [email, setEmail] = useState();//Formik tracks state
@@ -18,8 +26,9 @@ function LoginScreen(props) {
             <Formik
                 initialValues={{ email: '', password: '' }}
                 onSubmit={values => console.log(values)}
+                validationSchema={validationSchema}
             >
-                { ( {handleChange, handleSubmit} ) => (//bracket allows multuple lines
+                { ( {handleChange, handleSubmit, errors} ) => (//bracket allows multuple lines
                     <>
                         <AppTextInput
                             icon="email"
@@ -30,6 +39,7 @@ function LoginScreen(props) {
                             textContentType="emailAddress"  //IOS, autofill from keychain
                             onChangeText={handleChange("email")}
                         />
+                        <ErrorMessage error={errors.email}></ErrorMessage>
                         <AppTextInput
                             icon="lock"
                             placeholder="Password"
@@ -38,6 +48,7 @@ function LoginScreen(props) {
                             secureTextEntry     //Default true 
                             onChangeText={handleChange("password")}
                         />
+                        <ErrorMessage error={errors.password}></ErrorMessage>
                         <AppButton
                             title="Login"
                             color="primary"
