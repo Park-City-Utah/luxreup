@@ -12,8 +12,6 @@ import WelcomeScreen from './screens/WelcomeScreen';
 //import PickerScreen from './screens/PickerScreen';
 import LoginScreen from './screens/LoginScreen';
 
-
-
 export default function App() {
   //return <WelcomeScreen/>;
   //return <ViewImageScreen/>;
@@ -24,26 +22,7 @@ export default function App() {
   //return <PickerScreen/>
   return <LoginScreen/>
 
-  /*const [firstName, setFirstName] = useState(''); //empty so not undefined
-
-  return (
-    <Screen>
-      <Text>{firstName}</Text>
-      <TextInput 
-      clearButtonMode="always"  //iPhone only
-      //keyboardType="numberic"
-      //secureTextEntry         //If not indicated, true
-      onChangeText= {text => setFirstName(text)}
-      placeholder="First Name"
-      style={{
-        borderBottomColor: "#ccc",
-        borderBottomWidth: 1,
-      }}>
-
-      </TextInput>
-    </Screen>
-    */
-
+  
 /*?*return (
       <AppTextInput></AppTextInput>
   );*/
