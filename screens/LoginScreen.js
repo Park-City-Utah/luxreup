@@ -1,13 +1,11 @@
 import React from 'react';
-import {StyleSheet, Image, View} from 'react-native';
+import {StyleSheet, Image} from 'react-native';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 
-import AppTextInput from '../components/AppTextInput';
-import AppText from '../components/AppText';
 import Screen from '../components/Screen';
 import AppButton from '../components/AppButton';
-import ErrorMessage from '../components/ErrorMessage';
+import AppFormField from '../components/AppFormField';
 
 const validationSchema = Yup.object().shape({
     email: Yup.string().required().email().label("Email"),
@@ -28,27 +26,29 @@ function LoginScreen(props) {
                 onSubmit={values => console.log(values)}
                 validationSchema={validationSchema}
             >
-                { ( {handleChange, handleSubmit, errors} ) => (//bracket allows multuple lines
+                { ( {handleChange, handleSubmit, errors, setFieldTouched, touched} ) => (//bracket allows multuple lines
                     <>
-                        <AppTextInput
+                        <AppFormField
+                            name="email"
                             icon="email"
                             placeholder="Email"
-                            autoCapitalization="none"
+                            autoCapitalize="none"
                             autoCorrect={false}
                             keyBoardType="email-address"
                             textContentType="emailAddress"  //IOS, autofill from keychain
-                            onChangeText={handleChange("email")}
+                            //onBlur={() => setFieldTouched("email")}//Moved to component AppFormField
+                            //onChangeText={handleChange("email")}
                         />
-                        <ErrorMessage error={errors.email}></ErrorMessage>
-                        <AppTextInput
+                        <AppFormField
+                            name="password"
                             icon="lock"
                             placeholder="Password"
-                            autoCapitalization="none"
+                            autoCapitalize="none"
                             autoCorrect={false}
                             secureTextEntry     //Default true 
-                            onChangeText={handleChange("password")}
+                            //onBlur={() => setFieldTouched("password")}
+                            //onChangeText={handleChange("password")}
                         />
-                        <ErrorMessage error={errors.password}></ErrorMessage>
                         <AppButton
                             title="Login"
                             color="primary"
