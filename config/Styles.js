@@ -8,6 +8,6 @@ export default {
         fontSize: 18,
         color: colors.dark,
         borderBottomColor: "#ccc",
-        borderBottomWidth: "1",
+        borderBottomWidth: 1,
     }
 }
