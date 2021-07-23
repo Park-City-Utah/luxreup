@@ -10,9 +10,9 @@ import {
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import AppText from "./AppText";
-import Screen from "./Screens";
-import defaultStyles from "./config/Styles";
+import Screen from "./Screen";
 import PickerItem from "./PickerItem";
+import defaultStyles from "../config/styles";
 
 function AppPicker({ icon, items, onSelectItem, placeholder, selectedItem }) {
   const [modalVisible, setModalVisible] = useState(false);

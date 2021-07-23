@@ -4,7 +4,7 @@ import { View, StyleSheet, Image, TouchableHighlight, onPress, renderRightAction
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 
 import AppText from '../AppText';
-import colors from '../../config/Colors';
+import colors from '../../config/colors';
 
 function ListItem({ title, subTitle, image, IconComponent, onPress, renderRightActions, renderLeftActions }) {
     return (

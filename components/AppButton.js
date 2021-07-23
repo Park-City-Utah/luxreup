@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 
-import colors from './config/Colors';
+import colors from '../config/colors';
 
 function AppButton({ title, onPress, color}) {  //was props, destructured
     return (
@@ -15,7 +15,7 @@ function AppButton({ title, onPress, color}) {  //was props, destructured
 
 const styles = StyleSheet.create({
     appButton: {
-        backgroundColor: "red",
+        backgroundColor: colors.primary,
         borderRadius: 25,
         justifyContent: 'center',
         alignItems: 'center',

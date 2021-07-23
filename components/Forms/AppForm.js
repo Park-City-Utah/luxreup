@@ -1,9 +1,6 @@
 import React from 'react';
 import { Formik, validateYupSchema } from 'formik';
 
-import AppFormField from './AppFormField';
-import SubmitButton from './SubmitButton';
-
 function AppForm({ initialValues, onSubmit, validationSchema, children }) {
     return (
       <Formik
