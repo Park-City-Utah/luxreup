@@ -1,37 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View, onPress } from 'react-native';
 
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import {MaterialCommunityIcons} from '@expo/vector-icons';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
-import colors from '../config/Colors';
+import colors from '../../config/Colors';
 
-function ListItemCloseAction( {onPress} ) {
+function ListItemDeleteAction( {onPress} ) {
     return (
         <TouchableWithoutFeedback onPress={onPress}>
             <View style={styles.container}>
                 <MaterialCommunityIcons
-                    name="close-box-outline"
+                    name="trash-can-outline"
                     size={30}
                     color={colors.white}
-                />
+                />      
             </View> 
         </TouchableWithoutFeedback>
-    );
-}
+        );
+    }
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: 'green',
+        backgroundColor: colors.danger,
         width: 100,
         height: "100%",
         alignItems: 'center',
-        justifyContent: 'center'
-    },
-    icon: {
+        justifyContent: 'center',
 
     },
-    touch: {
-    },
+    touchable: {
+    }
 })
 
-export default ListItemCloseAction;
+export default ListItemDeleteAction;

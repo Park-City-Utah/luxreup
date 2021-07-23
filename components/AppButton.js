@@ -1,7 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, onPress} from 'react-native';
+import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 
-import colors from '../config/Colors';
+import colors from './config/Colors';
 
 function AppButton({ title, onPress, color}) {  //was props, destructured
     return (
@@ -15,7 +15,7 @@ function AppButton({ title, onPress, color}) {  //was props, destructured
 
 const styles = StyleSheet.create({
     appButton: {
-        backgroundColor: colors.primary,
+        backgroundColor: "red",
         borderRadius: 25,
         justifyContent: 'center',
         alignItems: 'center',
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
         width: '100%'
     },
     appButtontText: {
-        color: 'white',
+        color: colors.white,
         fontSize: 18,
         textTransform: 'uppercase',
         fontWeight: 'bold'

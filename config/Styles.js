@@ -1,8 +1,9 @@
 import { Platform } from 'react-native';
 
-import colors from '../config/Colors';
+import colors from './Colors';
 
 export default {
+    colors, 
     text: {
         fontFamily: Platform.OS === "android" ? "Roboto" : "Avenir",
         fontSize: 18,
@@ -10,4 +11,4 @@ export default {
         borderBottomColor: "#ccc",
         borderBottomWidth: 1,
     }
-}
+};

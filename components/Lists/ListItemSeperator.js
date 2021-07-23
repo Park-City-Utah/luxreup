@@ -2,7 +2,7 @@ import { lightgray } from 'color-name';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import Colors from '../config/Colors';
+import Colors from '../../config/Colors';
 
 function ListItemSeperator() {
     return (
