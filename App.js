@@ -7,10 +7,9 @@ import React from 'react';
 //import AccountScreen from './Screens/AccountScreen';
 //import ListingsScreen from './Screens/ListingsScreen';
 //import AppTextInput from './components/AppTextInput';
-//import PickerScreen from './screens/PickerScreen';
 //import LoginScreen from './Screens/LoginScreen';
-import RegisterScreen from './Screens/RegisterScreen';
-//import ListingEditScreen from './Screens/ListingEditScreen';
+//import RegisterScreen from './Screens/RegisterScreen';
+import ListingEditScreen from './Screens/ListingEditScreen';
 
 export default function App() {
   //return <WelcomeScreen/>;
@@ -19,10 +18,9 @@ export default function App() {
   //return <MessageScreen/>;
   //return <AccountScreen/>;
   //return <ListingsScreen/>;
-  //return <PickerScreen/>
   //return <LoginScreen/>
-  return <RegisterScreen/>
-  //return <ListingEditScreen/>
+  //return <RegisterScreen/>
+  return <ListingEditScreen/>
 
   
 
