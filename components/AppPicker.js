@@ -79,6 +79,8 @@ const styles = StyleSheet.create({
   placeholder: {
     color: defaultStyles.colors.medium,
     flex: 1,
+    fontSize: 16,
+    fontWeight: "normal"
   },
   text: {
     flex: 1,

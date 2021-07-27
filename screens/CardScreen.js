@@ -2,8 +2,8 @@ import React from 'react';
 import {StyleSheet, SafeAreaView} from 'react-native';
 
 import colors from '../config/colors';
-import Card from '../components/Card';
-import ListItem from '../components/ListItem';
+import Card from '../Components/Card';
+import ListItem from '../Components/Lists/ListItem';
 
 function CardScreen(props) {
     return (

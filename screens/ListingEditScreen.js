@@ -31,19 +31,19 @@ function ListingEditScreen() {
               title: "",
               price: "",
               description: "",
-              category: null,
+              category: null,   //Object, null if none
             }}
             onSubmit={(values) => console.log(values)}
             validationSchema={validationSchema}
           >
             <AppFormField 
-                maxLength={255} 
+                maxLength={255}     //Limit input
                 name="title" 
                 placeholder="Title" 
             />
             <AppFormField
             keyboardType="numeric"
-            maxLength={8}
+            maxLength={8}          //10000.99
             name="price"
             placeholder="Price"
             />

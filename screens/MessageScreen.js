@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { FlatList, StyleSheet, renderRightActions, renderLeftActions, RefreshControl , onPress } from 'react-native';
 
-import ListItem from '../components/ListItem';
-import Screen from '../components/Screen';
-import ListItemSeperator from '../components/ListItemSeperator';
-import ListItemDeleteAction from '../components/ListItemDeleteAction';
-import ListItemCloseAction from '../components/ListItemCloseAction';
+import ListItem from '../Components/Lists/ListItem';
+import Screen from '../Components/Screen';
+import ListItemSeperator from '../Components/Lists/ListItemSeperator';
+import ListItemDeleteAction from '../Components/Lists/ListItemDeleteAction';
+import ListItemCloseAction from '../Components/Lists/ListItemCloseAction';
 
 const intitialMessages = [
     {
