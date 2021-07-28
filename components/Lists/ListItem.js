@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, StyleSheet, Image, TouchableHighlight, onPress, renderRightActions, Icon} from 'react-native';
+import { View, StyleSheet, Image, TouchableHighlight } from 'react-native';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 
@@ -17,9 +18,14 @@ function ListItem({ title, subTitle, image, IconComponent, onPress, renderRightA
                         {IconComponent}
                         {image && <Image source={image} style={styles.cardImage}/> }
                         <View style={styles.textView}>
-                            <AppText style={styles.title}>{title}</AppText>
-                            {subTitle && <AppText style={styles.subTitle}>{subTitle}</AppText>}
+                            <AppText style={styles.title} numberOfLines={1}>{title}</AppText>
+                            {subTitle && <AppText numberOfLines={2} style={styles.subTitle}>{subTitle}</AppText>}
                         </View>
+                        <MaterialCommunityIcons
+                            name="chevron-right"
+                            size={25}
+                            color={colors.medium}
+                        />
                     </View>
                 </View>
             </TouchableHighlight>
@@ -28,14 +34,6 @@ function ListItem({ title, subTitle, image, IconComponent, onPress, renderRightA
 }
 
 const styles = StyleSheet.create({
-    userDetails: {//back to column
-        backgroundColor: colors.white,
-        borderBottomLeftRadius: 10,
-        borderBottomRightRadius: 10,
-        flexDirection: 'row',
-        padding: 12,
-        //marginLeft: 10,
-    },
     container: {
         flexDirection: 'row',
         marginTop: 2,
@@ -49,7 +47,8 @@ const styles = StyleSheet.create({
     textView: {
         marginLeft: 10,
         flexDirection: 'column',//Default (for clarity)
-        justifyContent: "center"
+        justifyContent: "center",
+        flex: 1
 
     },
     title: {
@@ -60,7 +59,14 @@ const styles = StyleSheet.create({
     subTitle: {
         color: colors.subTitle,
         fontSize: 14,
-    }
+    },
+    userDetails: {//back to column
+        backgroundColor: colors.white,
+        borderBottomLeftRadius: 10,
+        borderBottomRightRadius: 10,
+        flexDirection: 'row',
+        padding: 12,
+    },
 })
 
 export default ListItem;

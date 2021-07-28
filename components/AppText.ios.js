@@ -3,9 +3,9 @@ import { Text, StyleSheet } from 'react-native';
 
 import colors from '../config/colors';
 
-function AppText({children, style}) {  //was props, destructured
+function AppText({children, style, ...otherProps}) {  //was props, destructured
     return (
-        <Text style={[styles.text, style]}>{children}</Text>//would be props.children  w/o destructure
+        <Text style={[styles.text, style]} {...otherProps}>{children}</Text>//would be props.children  w/o destructure
     );
 }
 
