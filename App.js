@@ -22,6 +22,4 @@ export default function App() {
   //return <RegisterScreen/>
   return <ListingEditScreen/>
 
-  
-
 }
