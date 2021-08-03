@@ -4,7 +4,7 @@ import { StyleSheet, View } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 function IconComponent({ 
-    name="email", 
+    name="email",//default 
     size = 40, 
     backgroundColor="#000", 
     iconColor="#fff" 

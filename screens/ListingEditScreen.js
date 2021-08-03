@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StyleSheet } from 'react-native';
 import * as Yup from 'yup';
 
@@ -8,87 +8,120 @@ import AppFormField from "../Components/Forms/AppFormField";
 import SubmitButton  from '../Components/Forms/SubmitButton';
 import AppFormPicker from '../Components/Forms/AppFormPicker';
 import CategoryPickerItem from '../Components/CategoryPickerItem';
-import ImageSelectorList from '../Components/ImageSelectorList';
+import FormImagePicker from '../Components/Forms/FormImagePicker';
+import useLocation from "../Hooks/useLocation";
 import colors from '../config/colors';
 
 const validationSchema = Yup.object().shape({
-    //imageUri: Yup.object().required().nullable().label("Image"),
-    title: Yup.string().required().min(1).label("Title"),
-    price: Yup.number().required().min(1).max(10000).label("Price"),
-    description: Yup.string().label("Description"),
-    category: Yup.object().required().nullable().label("Category"),
+  title: Yup.string().required().min(1).label("Title"),
+  price: Yup.number().required().min(1).max(10000).label("Price"),
+  description: Yup.string().label("Description"),
+  category: Yup.object().required().nullable().label("Category"),
+  images: Yup.array().min(1, "Please select at least one image."),
 });
 
 //Picker choices
 const categories = [
-    { label: "Furniture", value: 1, backgroundColor: colors.primary, name: 'apps' },
-    { label: "Clothing", value: 2, backgroundColor: colors.secondary, name: 'email' },
-    { label: "Camera", value: 3, backgroundColor: colors.royalBlue, name: 'lock' },
-  ];
+  {
+    backgroundColor: colors.furniture,
+    icon: "floor-lamp",
+    label: "Furniture",
+    value: 1,
+  },
+  {
+    backgroundColor: colors.car,
+    icon: "car",
+    label: "Cars",
+    value: 2,
+  },
+  {
+    backgroundColor: colors.camera,
+    icon: "camera",
+    label: "Cameras",
+    value: 3,
+  },
+  {
+    backgroundColor: colors.games,
+    icon: "cards",
+    label: "Games",
+    value: 4,
+  },
+  {
+    backgroundColor: colors.clothing,
+    icon: "shoe-heel",
+    label: "Clothing",
+    value: 5,
+  },
+  {
+    backgroundColor: colors.sports,
+    icon: "basketball",
+    label: "Sports",
+    value: 6,
+  },
+  {
+    backgroundColor: colors.moviesAndMusic,
+    icon: "headphones",
+    label: "Movies & Music",
+    value: 7,
+  },
+  {
+    backgroundColor: colors.books,
+    icon: "book-open-variant",
+    label: "Books",
+    value: 8,
+  },
+  {
+    backgroundColor: colors.other,
+    icon: "application",
+    label: "Other",
+    value: 9,
+  },
+];
   
-
 function ListingEditScreen() {
-  const [imageUris, setImageUri] = useState([]);
-
-  //Leverage setImageUri above
-  const handleAdd = uri => {  
-    setImageUris([...imageUris, uri]);
-  }
-
-  //Leverage setImageUri above
-  const handleRemove = uri => {
-    setImageUris(imageUris.filter( imageUri => imageUri !== uri));//remove by filter and return without
-  }
+  const location = useLocation();
 
     return (
-        <Screen style={styles.container}>
-          <ImageSelectorList
-            imageUri={imageUris} 
-            //onChangeImage={(uri) => setImageUris(uri)}
-            //onAddImage={(uri) => handleAdd(uri)}
-            //onRemoveImage={(uri) => handleRemove(uri)}
-            //Previous can be simplified:
-            onAddImage={ handleAdd }
-            onRemoveImage={ handleRemove }
-          />
-          <AppForm
-            initialValues={{
-              //image: null,
-              title: "",
-              price: "",
-              description: "",
-              category: null,   //Object, null if none
-            }}
-            onSubmit={(values) => console.log(values)}
-            validationSchema={validationSchema}
-          >
-            <AppFormField 
-                maxLength={255}     //Limit input
-                name="title" 
-                placeholder="Title" 
-            />
-            <AppFormField
-            keyboardType="numeric"
-            maxLength={8}          //10000.99
-            name="price"
-            placeholder="Price"
-            />
-            <AppFormPicker 
-                items={categories} 
-                name="category" 
-                numberOfColumns={3}
-                PickerItemComponent={CategoryPickerItem}
-                placeholder="Category" 
-                width="50%"
-            />
-            <AppFormField
-            maxLength={255}
-            multiline
-            name="description"
-            numberOfLines={3}
-            placeholder="Description"
-            />
-            <SubmitButton title="Post" />
+      <Screen style={styles.container}>
+        <AppForm
+          initialValues={{
+            title: "",
+            price: "",
+            description: "",
+            category: null,   //Object, null if none
+            images: [],
+          }}
+          onSubmit={(values) => console.log(location)}
+          validationSchema={validationSchema}
+        >
+       <FormImagePicker name="images" />
+        <AppFormField 
+            maxLength={255}     //Limit input
+            name="title" 
+            placeholder="Title" 
+        />
+        <AppFormField
+        keyboardType="numeric"
+        maxLength={8}          //10000.99
+        name="price"
+        placeholder="Price"
+        />
+        <AppFormPicker 
+            items={categories} 
+            name="category"
+            numberOfColumns={3}
+            PickerItemComponent={CategoryPickerItem}
+            placeholder="Category" 
+            width="50%"
+        />
+        <AppFormField
+        maxLength={255}
+        multiline
+        name="description"
+        numberOfLines={3}
+        placeholder="Description"
+        />
+        <SubmitButton title="Post" />
         </AppForm>
       </Screen>
     );

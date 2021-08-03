@@ -1,25 +1,39 @@
-import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import React, {useRef} from 'react';
+import { View, StyleSheet, ScrollView } from 'react-native';
 import ImageSelector from './ImageSelector';
 
 function ImageSelectorList( { imageUris = [], onRemoveImage, onAddImage }) {
-  return (
-    <View style={styles.container}>
-        {imageUris.map((uri) => ( //Map list to ImageSelector Component(s)
-            <ImageSelector 
-                imageUri={uri} 
-                key={uri}
-                onChangeImage={() => onRemoveImage(uri)}
-            />
-        ))}
-        <ImageSelector onChangeImage={(uri) => onAddImage(uri)}/>
-    </View>
-  );
-}
+    const scrollView = useRef();
+
+    return (
+      <View>
+        <ScrollView
+          ref={scrollView}
+          horizontal
+          onContentSizeChange={() => scrollView.current.scrollToEnd()}
+        >
+          <View style={styles.container}>
+            {imageUris.map((uri) => (
+              <View key={uri} style={styles.image}>
+                <ImageSelector
+                  imageUri={uri}
+                  onChangeImage={() => onRemoveImage(uri)}
+                />
+              </View>
+            ))}
+            <ImageSelector onChangeImage={(uri) => onAddImage(uri)} />
+          </View>
+        </ScrollView>
+      </View>
+    );
+  }
 
 const styles = StyleSheet.create({
   container: {
       flexDirection: 'row',
+  }, 
+  image: {
+      marginRight: 10
   }
 });
 

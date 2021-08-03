@@ -1,7 +1,6 @@
 import React from 'react';
 import * as ImagePicker from 'expo-image-picker';
-import * as Permissions from 'expo-permissions';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { StyleSheet, Image, View, TouchableWithoutFeedback, Alert } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
@@ -11,19 +10,19 @@ function ImageSelector({ imageUri,  onChangeImage }) {
   //useEffect rather than use componentDidMount
   useEffect(() => {
     requestPermission();
-   // selectImage();
   }, [])
 
 
   //This will remember choice, so have to reset
   const requestPermission = async () => {
-    const { granted } = await Permissions.askAsync(Permissions.MEDIA_LIBRARY);
+    const { granted } = await ImagePicker.requestMediaLibraryPermissionsAsync();
 
     if( !granted  ) { //granted is destructured.. from result.granted
       alert('You need to enable image library access!');
     }
   }
 
+  //Handle press of component, react depending on image present or not
   const handlePress = () => {
       if(!imageUri) {
         selectImage(); 
@@ -53,7 +52,6 @@ function ImageSelector({ imageUri,  onChangeImage }) {
     <TouchableWithoutFeedback onPress={handlePress} >  
         <View style={styles.container} >
             {!imageUri && <MaterialCommunityIcons
-                style={styles.icon}
                 name="camera"
                 size={40}
                 color={colors.medium}
@@ -67,9 +65,6 @@ function ImageSelector({ imageUri,  onChangeImage }) {
 }
 
 const styles = StyleSheet.create({
-  icon: {
-      marginLeft: -10
-  },
   container: {
     width: 200, 
     height: 200, 
