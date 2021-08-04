@@ -3,7 +3,6 @@ import {StyleSheet, View, Image, SafeAreaView} from 'react-native';
 import {MaterialCommunityIcons} from '@expo/vector-icons';
 
 import colors from '../config/colors';
-import AppText from '../Components/AppText';
 
 function ViewImageScreen(props) {
     return (

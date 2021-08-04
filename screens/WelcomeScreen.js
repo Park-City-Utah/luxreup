@@ -6,14 +6,14 @@ import AppButton from '../Components/AppButton';
 
 function WelcomeScreen(props) {
     return (
-        <ImageBackground blurRadius={Platform.OS == 'android' ? 1 : 5}
+        <ImageBackground blurRadius={Platform.OS == 'android' ? 0 : 0}
             style={styles.background} 
-            source={require("../assets/background.jpg")}>
+            source={require("../assets/background-porsche.jpeg")}>
             <View style={styles.logoContainer}>
                 <Image 
-                    source={require("../assets/logo-red.png")} 
+                    source={require("../assets/logo.png")} 
                     style={styles.logo}/>
-                <AppText>Re-Up Luxury</AppText>
+                <AppText style={styles.logoText} ></AppText>
             </View>
             <View style={styles.buttonContainer}>
                 <AppButton title="Login" color="primary" onPress={() => console.log("Test")}></AppButton>
@@ -36,18 +36,20 @@ const styles = StyleSheet.create({
         //alignSelf: "center",
     },
     logo: {
-        height: 100,
-        width: 100,
-        //alignSelf: "center"   //Option
+        width: 300,
+        height: 120,
+        alignSelf: "center",
+        marginTop: 50,
+        marginBottom: 20,
     },
     logoText: {
-        fontSize: 25,
+        fontSize: 40,
         fontWeight: "bold",
         alignSelf: "center"   //Option
     },
     buttonContainer: {
         padding: 10,
-        width: '100%'
+        width: '75%'
     },
 });
 

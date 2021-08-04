@@ -25,7 +25,7 @@ function CardScreen(props) {
 const styles = StyleSheet.create({
     cardBackground: {
         flex: 1,
-        backgroundColor: colors.cardBackground,
+        backgroundColor: colors.white,
         //padding: 10,
         //paddingTop: "10%",
         //margin: 10,

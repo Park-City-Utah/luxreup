@@ -18,16 +18,16 @@ function Card({ title, subTitle, image}) {
 
 const styles = StyleSheet.create({
     card: {
-        //marginTop: "10%",
+        marginTop: "10%",
         borderTopLeftRadius: 15,
         borderTopRightRadius: 15,
         backgroundColor: colors.white,
-        marginBottom: 10,
+        //marginBottom: ,
         flex: 1,
         overflow: 'hidden'//adhere to container radius, no overflow
     },
     cardImage: {
-        height: 120,
+        height: 200,
         width: "100%"
     },
     detailsContainer: {
