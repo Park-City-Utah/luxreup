@@ -1,40 +1,20 @@
 import React from 'react';
-import { Text } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
-import Screen from './Components/Screen';
 
 import WelcomeScreen from './Screens/WelcomeScreen';
+import LoginScreen from './Screens/LoginScreen';
 import ViewImageScreen from './Screens/ViewImageScreen';
 import CardScreen from './Screens/CardScreen';
 import MessageScreen from './Screens/MessageScreen';
 import AccountScreen from './Screens/AccountScreen';
 import ListingsScreen from './Screens/ListingsScreen';
-import LoginScreen from './Screens/LoginScreen';
 import RegisterScreen from './Screens/RegisterScreen';
 import ListingEditScreen from './Screens/ListingEditScreen';
 
-const Tweets = () => (
-  <Screen>
-    <Text>Tweets</Text>
-    </Screen>
-);
-
-const TweetDetails = () => (
-  <Screen>
-  <Text>Tweet Details</Text>
-  </Screen>
-);
-
 const Stack = createStackNavigator();
-const StackNavigator = () => (
-  <Stack.Navigator>
-    <Stack.Screen name="Tweets" component={Tweets}></Stack.Screen>
-    <Stack.Screen name="Tweet Detail" component={TweetDetails}></Stack.Screen>
-  </Stack.Navigator>
-)
 
-export default function App() {
+function App() {
   //return <WelcomeScreen/>;
   //return <ViewImageScreen/>;
   //return <CardScreen/>;
@@ -43,6 +23,32 @@ export default function App() {
   //return <ListingsScreen/>;
   //return <LoginScreen/>
   //return <RegisterScreen/>
-  return <ListingEditScreen/>
+  //return <ListingEditScreen/>
 
-}
+  return (
+  <NavigationContainer>
+    <Stack.Navigator>
+      <Stack.Screen 
+        name="Welcome" 
+        component={ WelcomeScreen }
+        options={{ 
+          //headerStyle: {backgroundColor: colors.primary}
+          headerTransparent: true,
+          headerShown: false,
+        }}
+      ></Stack.Screen>
+      <Stack.Screen name="Login" component={ LoginScreen } options={{ headerShown: false }} ></Stack.Screen>
+      <Stack.Screen name="Register" component={ RegisterScreen }options={{ headerShown: false }} ></Stack.Screen>
+      <Stack.Screen name="Listing" component={ ListingsScreen }></Stack.Screen>
+      <Stack.Screen name="Listing Edit" component={ ListingEditScreen }></Stack.Screen>
+      <Stack.Screen name="Message" component={ MessageScreen }></Stack.Screen>
+      <Stack.Screen name="Card" component={ CardScreen }></Stack.Screen>
+      <Stack.Screen name="View Image" component={ ViewImageScreen }></Stack.Screen>
+      <Stack.Screen name="Account" component={ AccountScreen }></Stack.Screen>
+    </Stack.Navigator>
+</NavigationContainer>
+  );
+
+      }
+
+export default App;

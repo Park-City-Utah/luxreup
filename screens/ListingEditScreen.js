@@ -91,7 +91,7 @@ function ListingEditScreen() {
             category: null,   //Object, null if none
             images: [],       //Never null, doens't need to be required by YUP.
           }}
-          onSubmit={(values) => console.log(location)}
+          onSubmit={(values) => console.log("location")}
           validationSchema={validationSchema}
         >
         <FormImagePicker name="images" />

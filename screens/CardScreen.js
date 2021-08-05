@@ -9,9 +9,9 @@ function CardScreen(props) {
     return (
         <SafeAreaView style={styles.cardBackground}>
             <Card 
-                title="Hermes Jacket" 
-                subTitle="$100.00 or trade" 
-                image={require("../assets/jacket.png")}>  
+                title="Side Marker - Amber" 
+                subTitle="$30 or trade" 
+                image={require("../assets/sidemarkerClear.png")}>  
             </Card>
             <ListItem
                 title="Parker Ferguson"

@@ -10,7 +10,7 @@ function ViewImageScreen(props) {
             <View style={styles.close}>
                 <MaterialCommunityIcons name="close" style={styles.Icons} size={30} />
             </View>
-            <Image style={styles.picture} source={require("../assets/chair.jpg")}></Image>
+            <Image style={styles.picture} source={require("../assets/sidemarkerClear.png")}></Image>
             <View style={styles.delete}>
                 <MaterialCommunityIcons name="trash-can-outline" style={styles.Icons} size={30}/>   
             </View>
@@ -24,6 +24,7 @@ const styles = StyleSheet.create({
         backgroundColor: colors.black,
         flexDirection: 'row', //horizontal/vert
         justifyContent: "center", //main
+        marginTop: '10%'
     },
     close:{
         position: "absolute",   //Will allow to position NOT relative to row/column

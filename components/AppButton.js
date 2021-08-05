@@ -21,7 +21,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         padding: 15,
         marginVertical: 10,
-        width: '100%'
+        width: '100%',
+        //borderColor: "#A3A3A3",
+        //borderWidth: 2
     },
     appButtontText: {
         color: colors.white,

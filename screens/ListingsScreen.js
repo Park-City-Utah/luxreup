@@ -8,16 +8,34 @@ import colors from '../config/colors';
 
 const listings = [
     {
+        id: 0,
+        title: 'Rear Wing - Carbon',
+        price: 450,
+        image: require('../assets/rearwingCarbon.png')
+    },
+    {
         id: 1,
-        title: 'Jacket',
-        price: 100,
-        image: require('../assets/jacket.jpg')
+        title: 'Side Marker Light - Amber',
+        price: 30,
+        image: require('../assets/sidemarkerClear.png')
     },
     {
         id: 2,
-        title: 'Couch',
-        price: 1000,
-        image: require('../assets/couch.jpg')
+        title: 'Front spoiler - Black',
+        price: 200,
+        image: require('../assets/spoilerBlack.jpg')
+    },
+    {
+        id: 3,
+        title: 'GT4 Style intake - Carbon',
+        price: 180,
+        image: require('../assets/sideintakeCarbon.png')
+    },
+    {
+        id: 4,
+        title: 'Center Caps - Silver',
+        price: 65,
+        image: require('../assets/centercapsSilver.jpg')
     },
 ]
 
