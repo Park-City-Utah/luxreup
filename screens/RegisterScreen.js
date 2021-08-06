@@ -7,6 +7,7 @@ import AppForm from '../Components/Forms/AppForm';
 import AppFormField from '../Components/Forms/AppFormField';
 import SubmitButton from '../Components/Forms/SubmitButton';
 import colors from '../config/colors';
+import Routes from '../Navigation/Routes';
 
 const validationSchema = Yup.object().shape({
     name: Yup.string().required().label("Name"),
@@ -50,7 +51,7 @@ function RegisterScreen( {navigation}) {
               secureTextEntry
               textContentType="password"
             />
-            <SubmitButton title="Register" color="secondary" onSubmit={() => navigation.navigate("ListingsScreen")} />
+            <SubmitButton title="Register" color="secondary" onSubmit={() => navigation.navigate(Routes.LISTINGS)} />
           </AppForm>
         </View>
       </Screen>

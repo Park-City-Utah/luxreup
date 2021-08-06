@@ -1,10 +1,12 @@
 import React from 'react';
-import { StyleSheet, SafeAreaView, View, StatusBar} from 'react-native';
+import { StyleSheet, SafeAreaView, View, StatusBar, KeyboardAvoidingView} from 'react-native';
 
 function Screen({ children, style }) {
     return (
         <SafeAreaView style={[styles.screen, style]}>
-            <View style={[styles.view, style] }>{children}</View>
+            <KeyboardAvoidingView 
+                behavior="padding"
+                style={[styles.view, style] }>{children}</KeyboardAvoidingView>
         </SafeAreaView>
     );
 }

@@ -4,6 +4,7 @@ import * as Yup from "yup";
 
 import Screen from "../Components/Screen";
 import { AppForm, AppFormField, SubmitButton } from "../Components/Forms";
+import Routes from "../Navigation/Routes";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label("Email"),
@@ -40,7 +41,7 @@ function LoginScreen( {navigation} ) {
             secureTextEntry
             textContentType="password"
           />
-          <SubmitButton title="Login" color="primary" onSubmit={() => navigation.navigate("ListingsScreen")}/>
+          <SubmitButton title="Login" color="primary" onSubmit={() => navigation.navigate(Routes.LISTINGS)}/>
         </AppForm>
       </View>
     </Screen>

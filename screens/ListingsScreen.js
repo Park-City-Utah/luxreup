@@ -3,6 +3,7 @@ import { StyleSheet, FlatList} from 'react-native';
 
 import Card from '../Components/Card';
 import Screen from '../Components/Screen';
+import Routes from '../Navigation/Routes';
 
 import colors from '../config/colors';
 
@@ -50,7 +51,7 @@ function ListingsScreen( {navigation} ) {
                     title={item.title}
                     subTitle={"$" + item.price}
                     image={item.image}
-                    onPress={ () => navigation.navigate("ListingDetailsScreen", item)} 
+                    onPress={ () => navigation.navigate(Routes.LISTING_DETAILS, item)} 
                 />}
             />
         </Screen>
@@ -60,7 +61,7 @@ function ListingsScreen( {navigation} ) {
 const styles = StyleSheet.create({
     screen: {
         backgroundColor: colors.cardBackground,
-        padding: 5,                  //Passed to screen as array, SafeAreaView (screen) doesnt allow padding
+        //padding: 5,                  //Passed to screen as array, SafeAreaView (screen) doesnt allow padding
     }
 })
 

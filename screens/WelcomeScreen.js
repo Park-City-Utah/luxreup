@@ -6,6 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import AppText from '../Components/AppText';
 import AppButton from '../Components/AppButton';
 import colors from '../config/colors';
+import Routes from '../Navigation/Routes';
 
 function WelcomeScreen( {navigation} ) {
     return (
@@ -20,8 +21,8 @@ function WelcomeScreen( {navigation} ) {
                 <AppText style={styles.logoText}></AppText>
             </View>
             <View style={styles.buttonContainer}>
-                <AppButton title="Login" color="primary" onPress={() => navigation.navigate("Login")}></AppButton>
-                <AppButton title="Register" color="secondary" onPress={() => navigation.navigate("Register")}></AppButton>
+                <AppButton title="Login" color="primary" onPress={() => navigation.navigate(Routes.LOGIN)}></AppButton>
+                <AppButton title="Register" color="secondary" onPress={() => navigation.navigate(Routes.REGISTER)}></AppButton>
             </View>
         </ImageBackground>
     );
