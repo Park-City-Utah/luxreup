@@ -8,12 +8,6 @@ import colors from '../config/colors';
 
 const listings = [
     {
-        id: 0,
-        title: 'Rear Wing - Carbon',
-        price: 450,
-        image: require('../assets/rearwingCarbon.png')
-    },
-    {
         id: 1,
         title: 'Side Marker Light - Amber',
         price: 30,
@@ -21,25 +15,31 @@ const listings = [
     },
     {
         id: 2,
+        title: 'Rear Wing - Carbon',
+        price: 450,
+        image: require('../assets/rearwingCarbon.png')
+    },
+    {
+        id: 3,
         title: 'Front spoiler - Black',
         price: 200,
         image: require('../assets/spoilerBlack.jpg')
     },
     {
-        id: 3,
+        id: 4,
         title: 'GT4 Style intake - Carbon',
         price: 180,
         image: require('../assets/sideintakeCarbon.png')
     },
     {
-        id: 4,
+        id: 5,
         title: 'Center Caps - Silver',
         price: 65,
         image: require('../assets/centercapsSilver.jpg')
     },
 ]
 
-function ListingsScreen(props) {
+function ListingsScreen( {navigation} ) {
     return (
         <Screen style={styles.screen}>
             <FlatList
@@ -48,8 +48,9 @@ function ListingsScreen(props) {
             renderItem={({item}) => 
                 <Card
                     title={item.title}
-                    subTitle={item.price}
+                    subTitle={"$" + item.price}
                     image={item.image}
+                    onPress={ () => navigation.navigate("CardScreen", item)} 
                 />}
             />
         </Screen>

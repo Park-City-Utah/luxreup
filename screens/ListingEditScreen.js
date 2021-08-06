@@ -9,7 +9,7 @@ import SubmitButton  from '../Components/Forms/SubmitButton';
 import AppFormPicker from '../Components/Forms/AppFormPicker';
 import CategoryPickerItem from '../Components/CategoryPickerItem';
 import FormImagePicker from '../Components/Forms/FormImagePicker';
-import useLocation from "../Hooks/useLocation";
+//import useLocation from "../Hooks/useLocation";
 import colors from '../config/colors';
 
 const validationSchema = Yup.object().shape({
@@ -79,7 +79,7 @@ const categories = [
 ];
   
 function ListingEditScreen() {
-  const location = useLocation();
+  //const location = useLocation();
 
     return (
       <Screen style={styles.container}>
@@ -121,7 +121,7 @@ function ListingEditScreen() {
             numberOfLines={3}
             placeholder="Description"
             />
-            <SubmitButton title="Post" />
+            <SubmitButton title="Post" color="primary"/>
           </AppForm>
       </Screen>
     );

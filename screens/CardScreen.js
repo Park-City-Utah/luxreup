@@ -5,13 +5,15 @@ import colors from '../config/colors';
 import Card from '../Components/Card';
 import ListItem from '../Components/Lists/ListItem';
 
-function CardScreen(props) {
+function CardScreen( {route}) {
+    const listing = route.params;
     return (
         <SafeAreaView style={styles.cardBackground}>
             <Card 
-                title="Side Marker - Amber" 
-                subTitle="$30 or trade" 
-                image={require("../assets/sidemarkerClear.png")}>  
+                title={listing.title}
+                subTitle={"$" + listing.price}
+                image={listing.image}>
+                 
             </Card>
             <ListItem
                 title="Parker Ferguson"

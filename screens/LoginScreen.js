@@ -10,7 +10,7 @@ const validationSchema = Yup.object().shape({
   password: Yup.string().required().min(4).label("Password"),
 });
 
-function LoginScreen(props) {
+function LoginScreen( {navigation} ) {
   return (
     <Screen style={styles.container}>
       <View style={styles.logoContainer}>
@@ -40,7 +40,7 @@ function LoginScreen(props) {
             secureTextEntry
             textContentType="password"
           />
-          <SubmitButton title="Login" color="primary"/>
+          <SubmitButton title="Login" color="primary" onSubmit={() => navigation.navigate("ListingsScreen")}/>
         </AppForm>
       </View>
     </Screen>
