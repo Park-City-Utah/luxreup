@@ -1,9 +1,6 @@
 import React from 'react';
 import { StyleSheet, FlatList, View} from 'react-native';
 
-
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-
 import ListItem from '../Components/Lists/ListItem';
 import Screen from '../Components/Screen';
 import colors from '../config/colors';
@@ -15,19 +12,21 @@ const menuItems = [
         title: "My Listings",
         icon: {
             name: "format-list-bulleted",
-            backgroundColor: colors.primary
-        }
+            backgroundColor: colors.secondary
+        },
+        targetScreen: "ListingsScreen"
     },
     {
         title: "My Messages",
         icon: {
             name: "email",
-            backgroundColor: colors.secondary
-        }
+            backgroundColor: colors.primary
+        },
+        targetScreen: "MessageScreen"
     }
 ]
 
-function AccountScreen(props) {
+function AccountScreen( {navigation} ) {
     return (
         <Screen style={styles.screen}>
             <View style={styles.container}>
@@ -46,16 +45,20 @@ function AccountScreen(props) {
                         <ListItem
                             title={item.title}
                             IconComponent={
-                                <IconComponent name={item.icon.name} backgroundColor={item.icon.backgroundColor}/>
+                                <IconComponent 
+                                name={item.icon.name} 
+                                backgroundColor={item.icon.backgroundColor}/>
                             }
-                        />
+                            onPress={() => navigation.navigate(item.targetScreen)}
+                            />
                     }
+                    
                 />
            </View>
            <ListItem
            title="Log Out"
            IconComponent={
-               <IconComponent name="logout" backgroundColor={colors.primary}/>
+               <IconComponent name="logout" backgroundColor={colors.secondary}/>
            }/>
 
         </Screen>

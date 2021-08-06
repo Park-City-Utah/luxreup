@@ -1,8 +1,5 @@
 import React from 'react';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import WelcomeScreen from '../Screens/WelcomeScreen';
 import LoginScreen from '../Screens/LoginScreen';
