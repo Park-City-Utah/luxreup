@@ -5,7 +5,7 @@ import colors from '../config/colors';
 import Card from '../Components/Card';
 import ListItem from '../Components/Lists/ListItem';
 
-function CardScreen( {route}) {
+function ListingDetailsScreen ( {route}) {
     const listing = route.params;
     return (
         <SafeAreaView style={styles.cardBackground}>
@@ -13,7 +13,6 @@ function CardScreen( {route}) {
                 title={listing.title}
                 subTitle={"$" + listing.price}
                 image={listing.image}>
-                 
             </Card>
             <ListItem
                 title="Parker Ferguson"
@@ -30,10 +29,10 @@ const styles = StyleSheet.create({
         backgroundColor: colors.white,
         //padding: 10,
         //paddingTop: "10%",
-        //margin: 10,
+        marginTop: '10%',
         justifyContent: "flex-start", //main
     }
 
 })
 
-export default CardScreen;
+export default ListingDetailsScreen;

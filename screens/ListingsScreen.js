@@ -50,7 +50,7 @@ function ListingsScreen( {navigation} ) {
                     title={item.title}
                     subTitle={"$" + item.price}
                     image={item.image}
-                    onPress={ () => navigation.navigate("CardScreen", item)} 
+                    onPress={ () => navigation.navigate("ListingDetailsScreen", item)} 
                 />}
             />
         </Screen>

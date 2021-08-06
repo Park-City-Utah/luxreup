@@ -2,13 +2,13 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import ListingsScreen from '../Screens/ListingsScreen';
-import CardScreen from '../Screens/CardScreen';
+import ListingDetailsScreen from '../Screens/ListingDetailsScreen';
 
 const Stack = createStackNavigator();
 const FeedNavigator = () => (
   <Stack.Navigator >
-      <Stack.Screen name="Listings" component={ ListingsScreen } options={{ headerShown: true }} ></Stack.Screen>
-      <Stack.Screen name="CardScreen" component={ CardScreen } options={{ headerShown: true }} ></Stack.Screen>
+      <Stack.Screen name="Listings" component={ ListingsScreen } options={{ headerShown: false }} ></Stack.Screen>
+      <Stack.Screen name="ListingDetailsScreen" component={ ListingDetailsScreen } options={{ headerShown: false  }} ></Stack.Screen>
     </Stack.Navigator>
 )
 
