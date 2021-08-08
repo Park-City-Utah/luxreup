@@ -34,7 +34,7 @@ function AccountScreen( {navigation} ) {
                 <ListItem 
                     title="Parker Ferguson"
                     subTitle="parker@engineerd.io"
-                    image={require("../assets/profile.png")}
+                    image={require("../assets/profile.jpg")}
                 />
             </View>
            <View style={styles.container}>

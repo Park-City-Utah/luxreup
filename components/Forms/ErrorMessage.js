@@ -15,7 +15,7 @@ function ErrorMessage({ error, visible }) {
 
 const styles = StyleSheet.create({
     error: {
-        fontSize: 15,
+        fontSize: 12,
         color: 'red',
     }
 });

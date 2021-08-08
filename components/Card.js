@@ -4,11 +4,11 @@ import { StyleSheet, View, Text, Image, TouchableWithoutFeedback} from 'react-na
 import AppText from './AppText';
 import colors from '../config/colors';
 
-function Card({ title, subTitle, image, onPress }) {
+function Card({ title, subTitle, imageUrl, onPress }) {
     return (
         <TouchableWithoutFeedback onPress={onPress}>
             <View style={styles.card}>
-                    <Image source={image} style={styles.cardImage}/> 
+                    <Image source={{ uri: imageUrl }} style={styles.cardImage}/> 
                     <View style={styles.detailsContainer}>
                         <AppText style={styles.title}>{title}</AppText>
                         <AppText style={styles.subTitle}>{subTitle}</AppText>

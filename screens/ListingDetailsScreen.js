@@ -17,7 +17,7 @@ function ListingDetailsScreen ( {route}) {
             <ListItem
                 title="Parker Ferguson"
                 subTitle="1 Listing"
-                image={require("../assets/profile.png")}>
+                image={require("../assets/profile.jpg")}>
             </ListItem>
         </SafeAreaView>
     );

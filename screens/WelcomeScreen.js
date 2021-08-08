@@ -16,9 +16,14 @@ function WelcomeScreen( {navigation} ) {
             <View style={styles.logoContainer}>
                 <Image 
                     source={require("../assets/poweredByLogo.png")} 
-                    style={styles.logo}
-                    />
-                <AppText style={styles.logoText}></AppText>
+                    style={styles.poweredByLogo}
+                />
+            </View>
+            <View style={styles.appLogoContainer}>
+                <Image 
+                    source={require("../assets/AppLogo.png")} 
+                    style={styles.appLogo}
+                />
             </View>
             <View style={styles.buttonContainer}>
                 <AppButton title="Login" color="primary" onPress={() => navigation.navigate(Routes.LOGIN)}></AppButton>
@@ -36,12 +41,27 @@ const styles = StyleSheet.create({
     logoContainer: {
         alignItems: "center",   //Alight all items in container
         width: '100%',
-        height: '30%',
+        height: '20%',
+        justifyContent: 'center',
+
+    },
+    poweredByLogo: {
+        //top: '5%',
+        width: '45%',
+        resizeMode: 'contain',
+       // alignSelf: "center",
+        marginTop: 5,
+        //marginBottom: 20,
+    },
+    appLogoContainer: {
+        alignItems: "center",   //Alight all items in container
+        width: '100%',
+        height: '20%',
         justifyContent: 'center',
     },
-    logo: {
+    appLogo: {
         //top: '5%',
-        width: '50%',
+        width: '80%',
         resizeMode: 'contain',
        // alignSelf: "center",
         marginTop: 5,
@@ -57,7 +77,7 @@ const styles = StyleSheet.create({
     buttonContainer: {
         padding: 10,
         width: '100%',
-        height: '70%',
+        height: '60%',
         justifyContent: 'flex-end',
         bottom: 10,
     },

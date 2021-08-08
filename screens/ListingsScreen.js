@@ -1,46 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { StyleSheet, FlatList} from 'react-native';
 
 import Card from '../Components/Card';
 import Screen from '../Components/Screen';
 import Routes from '../Navigation/Routes';
+import listingsApi from '../API/listings';
 
 import colors from '../config/colors';
 
-const listings = [
-    {
-        id: 1,
-        title: 'Side Marker Light - Amber',
-        price: 30,
-        image: require('../assets/sidemarkerClear.png')
-    },
-    {
-        id: 2,
-        title: 'Rear Wing - Carbon',
-        price: 450,
-        image: require('../assets/rearwingCarbon.png')
-    },
-    {
-        id: 3,
-        title: 'Front spoiler - Black',
-        price: 200,
-        image: require('../assets/spoilerBlack.jpg')
-    },
-    {
-        id: 4,
-        title: 'GT4 Style intake - Carbon',
-        price: 180,
-        image: require('../assets/sideintakeCarbon.png')
-    },
-    {
-        id: 5,
-        title: 'Center Caps - Silver',
-        price: 65,
-        image: require('../assets/centercapsSilver.jpg')
-    },
-]
-
 function ListingsScreen( {navigation} ) {
+    const [listings, setListings] = useState([]);
+    useEffect(() => {
+        loadListings();
+    }, []);
+
+    //Need async, can't do in useEffect
+    const loadListings = async () => {
+        const response = await listingsApi.getListings();
+        setListings(response.data);
+    }
+
     return (
         <Screen style={styles.screen}>
             <FlatList
@@ -50,7 +29,7 @@ function ListingsScreen( {navigation} ) {
                 <Card
                     title={item.title}
                     subTitle={"$" + item.price}
-                    image={item.image}
+                    imageUrl={item.images[0].url}
                     onPress={ () => navigation.navigate(Routes.LISTING_DETAILS, item)} 
                 />}
             />
