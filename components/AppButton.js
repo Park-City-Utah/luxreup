@@ -3,7 +3,7 @@ import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 
 import colors from '../config/colors';
 
-function AppButton({ title, onPress, color}) {  //was props, destructured
+function AppButton({ title, onPress, color }) {  //was props, destructured
     return (
         //Following allows us to append colors (custom) at instantiation of object
         <TouchableOpacity style={[styles.appButton, {backgroundColor: colors[color]}]} onPress={onPress}>

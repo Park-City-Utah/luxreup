@@ -18,6 +18,7 @@ export default useLocation = () => {
     }
   };
 
+  //Cannot be async, handle in second function
   useEffect(() => {
     getLocation();
   }, []);

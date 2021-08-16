@@ -1,6 +1,6 @@
 export default {
     primary: '#7dfdfe',//'#fc5c65',
-    secondary: '#fc5c65',//'#4ecdc4',//'#7dfdfe',
+    secondary: 'tomato',//'#fc5c65',//'#4ecdc4',//'#7dfdfe',
     light: "#f8f4f4",
     medium: "#6e6969",
     dark: "#0c0c0c",
@@ -10,6 +10,7 @@ export default {
     gold: "gold",
     royalBlue: "#246EE9",
     scarletRed: "#FF2400",
+    tomato: 'tomato',
     cardBackground: "#f8f4f4",
     subTitle: "#6e6969",
     danger: "#ff5252",

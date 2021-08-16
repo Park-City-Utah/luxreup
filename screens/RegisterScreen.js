@@ -19,7 +19,7 @@ function RegisterScreen( {navigation}) {
     return (
       <Screen style={styles.container}>
         <View style={styles.logoContainer}>
-          <Image style={styles.logo} source={require("../assets/logoSmall.png")} />
+          <Image style={styles.logo} source={require("../assets/poweredByLogo.png")} />
         </View>
         <View style={styles.formContainer}>
           <AppForm
@@ -63,7 +63,7 @@ function RegisterScreen( {navigation}) {
       width: '100%'
     },
     logoContainer: {
-      height: '25%',
+      height: '30%',
       width: '100%',
       //backgroundColor: 'red',
       justifyContent: 'center'
@@ -76,8 +76,8 @@ function RegisterScreen( {navigation}) {
     logo: {
       position: 'absolute',
       marginTop: 15,
-      width: 200,
-      height: 100,
+      width: 250,
+      height: 125,
       resizeMode: 'contain',
       alignSelf: "center",
       marginBottom: 5,

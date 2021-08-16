@@ -15,15 +15,11 @@ function WelcomeScreen( {navigation} ) {
             source={require("../assets/background-porsche.jpeg")}>
             <View style={styles.logoContainer}>
                 <Image 
-                    source={require("../assets/poweredByLogo.png")} 
-                    style={styles.poweredByLogo}
-                />
-            </View>
-            <View style={styles.appLogoContainer}>
-                <Image 
                     source={require("../assets/AppLogo.png")} 
                     style={styles.appLogo}
                 />
+            </View>
+            <View style={styles.appLogoContainer}>
             </View>
             <View style={styles.buttonContainer}>
                 <AppButton title="Login" color="primary" onPress={() => navigation.navigate(Routes.LOGIN)}></AppButton>
@@ -41,7 +37,7 @@ const styles = StyleSheet.create({
     logoContainer: {
         alignItems: "center",   //Alight all items in container
         width: '100%',
-        height: '20%',
+        height: '40%',
         justifyContent: 'center',
 
     },
@@ -54,10 +50,10 @@ const styles = StyleSheet.create({
         //marginBottom: 20,
     },
     appLogoContainer: {
-        alignItems: "center",   //Alight all items in container
+        //alignItems: "center",   //Alight all items in container
         width: '100%',
         height: '20%',
-        justifyContent: 'center',
+        //justifyContent: 'center',
     },
     appLogo: {
         //top: '5%',
@@ -77,7 +73,7 @@ const styles = StyleSheet.create({
     buttonContainer: {
         padding: 10,
         width: '100%',
-        height: '60%',
+        height: '40%',
         justifyContent: 'flex-end',
         bottom: 10,
     },
