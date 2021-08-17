@@ -7,34 +7,19 @@ import Screen from '../Components/Screen';
 import Routes from '../Navigation/Routes';
 import listingsApi from '../API/listings';
 import AppButton from '../Components/AppButton';
-
 import colors from '../config/colors';
 import AppText from '../Components/AppText';
+import useApi from '../Hooks/useApi';
 
 function ListingsScreen( {navigation} ) {
-    const [listings, setListings] = useState([]);
-    const [error, setError] = useState(false);
-    const [loading, setLoading] = useState(false);
+//Moved state vars into useApi hook
+    const { request: loadListings, data: listings, error, loading } = useApi(listingsApi.getListings); //Not calling, passing.. no brackets
 
     useEffect(() => {
         loadListings();
     }, []);
 
-    //Need async, can't do in useEffect
-    const loadListings = async () => {
-        //Api sauce so don't need try/catch
-        setLoading(true);
-        const response = await listingsApi.getListings();//Funct in api
-        setLoading(false);
-
-        //ErrorHandling
-        if (!response.ok) {
-            setError(true);
-            return;
-        }
-        setError(false);
-        setListings(response.data);
-    }
+//Moved loadListings function to useApi hook
 
     return (
         <Screen style={styles.screen}>
