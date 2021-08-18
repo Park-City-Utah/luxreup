@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { StyleSheet, FlatList } from 'react-native';
 import ActivityIndicator from '../Components/ActivityIndicator';
 
@@ -11,7 +11,7 @@ import colors from '../config/colors';
 import AppText from '../Components/AppText';
 import useApi from '../Hooks/useApi';
 
-function ListingsScreen( {navigation} ) {
+function ListingsScreen( { navigation} ) {
 //Moved state vars into useApi hook
     const { request: loadListings, data: listings, error, loading } = useApi(listingsApi.getListings); //Not calling, passing.. no brackets
 
@@ -57,6 +57,6 @@ const styles = StyleSheet.create({
         height: '85%'
 
     }
-})
+});
 
 export default ListingsScreen;

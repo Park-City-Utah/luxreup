@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+//Created to abstract and resuse getListings from listingsScreen
 export default useApi = (apiFunction) => {
     //Altered 'listings' & 'setListings' to 'data' for general purpose
     const [data, setData] = useState([]);

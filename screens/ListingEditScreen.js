@@ -9,7 +9,8 @@ import SubmitButton  from '../Components/Forms/SubmitButton';
 import AppFormPicker from '../Components/Forms/AppFormPicker';
 import CategoryPickerItem from '../Components/CategoryPickerItem';
 import FormImagePicker from '../Components/Forms/FormImagePicker';
-//import useLocation from "../Hooks/useLocation";
+import useLocation from '../Hooks/useLocation';
+import listingsApi from '../API/listings';
 import colors from '../config/colors';
 
 const validationSchema = Yup.object().shape({
@@ -77,10 +78,20 @@ const categories = [
     value: 9,
   },
 ];
+
   
 function ListingEditScreen() {
-  //const location = useLocation();
+  const location = useLocation();
 
+  const handleSubmit = async (listing) => {
+    //listing.location = location;
+    const result = await listingsApi.addListing({...listing, location});
+    if (!result.ok) {
+      return alert('Could not save the lsiting.');
+    }
+    alert('Success.');
+    }
+  
     return (
       <Screen style={styles.container}>
         <AppForm
@@ -91,7 +102,7 @@ function ListingEditScreen() {
             category: null,   //Object, null if none
             images: [],       //Never null, doens't need to be required by YUP.
           }}
-          onSubmit={(values) => console.log("location")}
+          onSubmit={handleSubmit} //Reference
           validationSchema={validationSchema}
         >
         <FormImagePicker name="images" />
