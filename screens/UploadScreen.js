@@ -1,0 +1,40 @@
+import React from 'react';
+import { View, StyleSheet, Modal } from 'react-native';
+import * as Progress from 'react-native-progress'
+import AppText from '../Components/AppText';
+import colors from '../config/colors';
+
+function UploadScreen({ onDone, progress = 0, visible = false }) {
+  return (
+    <Modal visible={visible}>
+    <View style={styles.container}>
+        {progress < 1 ? 
+        <Progress.Bar 
+            color={colors.primary} 
+            progress={progress} 
+            width={150} /> 
+             : ( <LottieView
+                    style={styles.animation}
+                    source={require('../assets/animations/done.json')}
+                    autoPlay={true}
+                    loop={false} 
+                    onAnimationFinish={onDone}
+                    >
+                </LottieView> )}
+    </View>
+    </Modal>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+      alignItems: 'center',
+      flex: 1, 
+      justifyContent: 'center'
+  },
+  animation: {
+      width: 100,
+  }
+});
+
+export default UploadScreen;

@@ -1,2 +1,3 @@
-# luxreup
-Application developed in course (React Native). Application to allow for post and sale/resale of luxury items.
+# LuxReUp
+
+React Native Application to buy and sell used luxury car parts.
