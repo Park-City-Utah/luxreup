@@ -1,4 +1,5 @@
 import apiClient from "./Client";
+import ListingEditScreen from "../Screens/ListingEditScreen";
 
 const endpoint = "/listings"
 
@@ -10,7 +11,7 @@ const getListings = () => apiClient.get(endpoint);
 //      Send to endpoint
 //      return response;
 //}
-const addListing = (listing) => {    //Sending in listing
+const addListing = (listing, onUploadProgress) => {    //Sending in listing
     //Cointent-type is set by apiSauce
     const data = new FormData();    //Auto sets to multip part
     data.append('title', listing.title);
@@ -26,8 +27,15 @@ const addListing = (listing) => {    //Sending in listing
     if(listing.location) {
         data.append('location', JSON.stringify(listing.location));
 };
+    
+    //Parent needs to have event raised from child, see listing
+    //Edit Screen, we will raise even here.
+
     //Return response
-    return apiClient.post(endpoint, data);
+    return apiClient.post(endpoint, data, {
+        //=> onUploadProgress is send in from listingEditScreen.hs
+        onUploadProgress: (progress) => onUploadProgress(progress.loaded/progress.total),
+    });
 }
 
 export default {

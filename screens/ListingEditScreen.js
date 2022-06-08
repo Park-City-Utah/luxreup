@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet } from 'react-native';
 import * as Yup from 'yup';
+import LottieView from 'lottie-react-native';
 
 import Screen from '../Components/Screen';
 import AppForm from "../Components/Forms/AppForm";
@@ -11,6 +12,7 @@ import CategoryPickerItem from '../Components/CategoryPickerItem';
 import FormImagePicker from '../Components/Forms/FormImagePicker';
 import useLocation from '../Hooks/useLocation';
 import listingsApi from '../API/listings';
+import UploadScreen from './UploadScreen';
 import colors from '../config/colors';
 
 const validationSchema = Yup.object().shape({
@@ -82,18 +84,35 @@ const categories = [
   
 function ListingEditScreen() {
   const location = useLocation();
+  const [ uploadVisible, setUploadVisible ] =  useState(false);
+  const [ progress, setProgress ] = useState(0);
 
   const handleSubmit = async (listing) => {
+    //Reset progress for multi upload reset
+    setProgress(0);
+    setUploadVisible(true);
     //listing.location = location;
-    const result = await listingsApi.addListing({...listing, location});
+    const result = await listingsApi.addListing({...listing, location}, 
+    //Progress, raise event to parent (listings.js) in API folder, add here in addListing
+    progress => setProgress(progress));
+
+    
+    //setUploadVisible(false);
+
     if (!result.ok) {
+      setUploadVisible(false);    //We want to hide if issue
       return alert('Could not save the lsiting.');
     }
     alert('Success.');
-    }
+    };
   
     return (
       <Screen style={styles.container}>
+        <UploadScreen 
+          onDone={ () => setUploadVisible(false) } 
+          progresss={progress} 
+          visible={uploadVisible}>
+        </UploadScreen>
         <AppForm
           initialValues={{
             title: "",
